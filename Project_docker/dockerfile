@@ -1,0 +1,7 @@
+FROM python
+Run pip install flask requests
+COPY ./static /home/devasc/Desktop/Project_docker/static/
+COPY ./templates /home/devasc/Desktop/Project_docker/templates/
+COPY main.py /home/devasc/Desktop/Project_docker/
+EXPOSE 5151
+CMD python /home/devasc/Desktop/Project_docker/main.py

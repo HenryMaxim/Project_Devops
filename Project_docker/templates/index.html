@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style.css"
+</head>
+<body>
+    <h1>Called via IP Gateway: {{ request.remote_addr}}</h1>
+    <h2>Current date and time: {{datetime_now}}</h2>
+
+    <p>The winner is {{most_voted_song}}</p>
+
+    <ul>
+        {% for song, votes in song_votes.items() %}
+            <li>{{ song }}: {{ votes }} votes</li>
+        {% endfor %}
+        </ul>
+</body>
+</html>
