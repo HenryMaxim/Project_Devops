@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Document</title>
-    <link rel="stylesheet" href="static/style.css"
+    <title>Song Voting Results</title>
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-    <h1>Called via IP Gateway: {{ request.remote_addr}}</h1>
-    <h2>Current date and time: {{datetime_now}}</h2>
-
-    <p>The winner is {{most_voted_song}}</p>
-
-    <ul>
-        {% for song, votes in song_votes.items() %}
-            <li>{{ song }}: {{ votes }} votes</li>
-        {% endfor %}
+    <header>
+        <h1>Eurosong Results Germany</h1>
+        <h2>Made By Maxim and Joren</h2>
+        <h2>Current date and time: {{datetime_now}}</h2>
+    </header>
+    <section>
+        <h3>Overall Results</h3>
+        <p>The winner is {{most_voted_song}}</p>
+        <ul>
+            {% for song, votes in song_votes.items() %}
+                <li>{{song }}: {{ votes }} votes</li>
+            {% endfor %}
         </ul>
+    </section>
+    <section>
+        <h3>Provincial Results</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Provincie</th>
+                    <th>Most Voted song</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for province,song in most_voted_province_song.items() %}
+                <tr>
+                    <td>{{ province }}</td>
+                    <td>{{song }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
 </body>
 </html>
